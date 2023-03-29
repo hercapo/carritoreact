@@ -1,32 +1,19 @@
-import './Navbar.css'
-import Button from '../button/Button'
 import CartWidget from '../CartWidget/CartWidget'
+import './Navbar.css'
+import { Link, NavLink } from 'react-router-dom'
 
-
-const Navbar = () => {
-    const handleClick = () => {
-        console.log('Calzado Deportivo')
-        console.log('otra linea')
-    }
-
-    return (
-
-        <nav className="container-fluid bg-info d-flex justify-content-between">
-            
-            <div>
-                <h1>Mc.Store Deportes</h1>
-            </div>
-            
-            <div className='container-fluid d-flex justify-content-around align-items-center'>
-                <Button label="Deportivo"  callback={handleClick}/>
-                <Button label="Trekking" callback={() => console.log('Tablets')}/>
-                <Button label="Urban" callback={() => console.log('Notebooks')}/> 
-            </div>
-            
-            <CartWidget/>
-        
-        </nav>
-    )
+const NavBar = () => {
+  return (
+    <nav className="NavBar " >
+        <Link to='/'>Ecommerce</Link>
+        <div className="Categories">
+            <NavLink to='/category/celular' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Celular</NavLink>
+            <NavLink to='/category/tablet' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Tablet</NavLink>
+            <NavLink to='/category/notebook' className={({ isActive }) => isActive ? 'ActiveOption' : 'Option'}>Notebook</NavLink>
+        </div>
+        <CartWidget />
+    </nav>
+  )
 }
 
-export default Navbar
+export default NavBar

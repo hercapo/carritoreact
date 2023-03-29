@@ -1,23 +1,24 @@
 import './App.css';
-import Navbar from './components/Navbar/Navbar';
-import Counter from './components/Counter/Counter';
+import Navbar from './components/Navbar/Navbar'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import CartWidget from './components/CartWidget/CartWidget';
-import Button from './components/button/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <ItemListContainer greeting={'Bienvenidos a mi Ecommerce'}/>
-      <Counter />
-      <CartWidget />
-      <Button />
-
+    <div className='App'>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer greeting={'Todos nuestros productos'}/>}/>
+          <Route path="/category/:categoryId" element={<ItemListContainer greeting={'Productos filtrados por categoria'}/>}/>
+          <Route path="/item/:itemId" element={<ItemDetailContainer />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;
