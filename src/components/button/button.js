@@ -1,6 +1,6 @@
 const Button = (props) => {
     console.log(props)
-    return <button onClick={props.callback} style={{ backgroundColor: 'red', color: 'white'}}>{props.label}</button>
+    return <button onClick={props.callback} className='bg-primary text-white rounded-xl px-3 py-1 hover:opacity-75 shadow-md'>{props.label}</button>
 }
 
 export default Button
